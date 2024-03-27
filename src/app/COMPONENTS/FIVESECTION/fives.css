@@ -1,0 +1,59 @@
+.sectionfive{
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+.sectionfive .top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.sectionfive .top h5{
+    color: #ababab;
+    font-weight: 400;
+    font-size: 25px;
+}
+.sectionfive .top h2{
+    line-height: 1.1;
+    font-size: 60px;
+    padding-bottom: 20px;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 0;
+    z-index: 1;
+    color: #333333;
+    font-family: var(--fontfamily);
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  
+  }
+  .centered h2{
+    transform: translate(-50%, -50%);
+    font-family: var(--fontfamily);
+    color: black;
+    margin-bottom: 5px;
+    line-height: 1.1;
+    font-size: 64px;
+    padding-bottom: 20px;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 0;
+    z-index: 1;
+  }
+ .video{
+    width: 100%;
+    background-image: url('/images/lastbg.webp');
+    background-size: cover;
+    background-position: fixed;
+    background-repeat: no-repeat;
+    height: 700px;
+}
+.videosection{
+    width: 100%;
+    position: relative;
+margin-top: 50px;
+  }
+ 

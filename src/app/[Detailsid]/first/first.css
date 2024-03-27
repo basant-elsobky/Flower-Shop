@@ -1,0 +1,35 @@
+.first {
+    background-color: #E1A2A1;
+    color: white;
+}
+    .top {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 100px;
+        height: 200px;
+    }
+    .top h2{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    font-size: 2.25em;
+    font-family: var(--fontfamily);
+}
+.top ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+}
+
+ .top  li {
+    display: inline;
+    padding: 10px;
+}
+.top li a{
+    color: white;
+    text-decoration: none;
+  }

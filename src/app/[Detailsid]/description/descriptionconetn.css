@@ -1,0 +1,19 @@
+.descriptionconent p{
+    margin: 0 0 15px;
+}
+.descriptionconent{
+    padding: 30px;
+}
+.descriptionconent h4{
+    color: black;
+    margin-top: 2em;
+    font-size: 30px;
+    font-family: var(--fontfamily);
+    font-weight: 700;
+    letter-spacing: 0em;
+    margin: 0 0 15px;
+    line-height: 1.1;
+}
+.descriptionconent ul li{
+    margin-bottom: 5px;
+}

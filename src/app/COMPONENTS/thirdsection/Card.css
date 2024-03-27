@@ -1,0 +1,31 @@
+.card{
+    height: 600px;
+    margin-bottom: 50px;
+    margin-top: 40px;
+    text-align: left;
+
+}
+.card:hover .card-title {
+    color: var(--pinkcolor) !important;
+}
+.card-title{
+    font-size: 20px;
+    font-weight: 700;
+    font-size: 24px;
+    font-family: var(--fontfamily);
+    color: #333;
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 12px ;
+    margin-top: 10px;
+    line-height: normal;
+    transition: all .4s ease-in-out;
+}
+
+.card-text{
+    line-height: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.615) !important;
+   
+}

@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+:root{
+--maincolor:#ffffff;
+--secondcolor:  #9a9a9a;
+;
+--pinkcolor:#E19B9A;
+--fontweightsmall:400;
+--fontweightmedium:600;
+--fontweightlarge:700;
+
+--fontfamily:  "Dancing Script", cursive;
+
+}
