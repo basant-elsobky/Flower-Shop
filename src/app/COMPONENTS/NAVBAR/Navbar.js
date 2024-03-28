@@ -6,6 +6,7 @@ import PersonIcon from '@mui/icons-material/Person';
 
 import Link from 'next/link';
 import supabase from '@/app/Config/Supabaseclient';
+import { Button } from '@mui/material';
 function Navbar() {
     const [cartItemCount, setCartItemCount] = useState(null);
 
@@ -53,8 +54,9 @@ function Navbar() {
                                 </Link>
                                 <span>{cartItemCount}</span>
                             </div>
-
+<p>hello user email</p>
                             <PersonIcon style={{ color: 'white', fontSize: '30px' }} />
+                            <Button>sign out</Button>
                         </div>
 
                     </div>

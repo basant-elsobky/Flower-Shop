@@ -11,13 +11,16 @@ import Third from "./COMPONENTS/thirdsection/Third";
 import { createClient } from "@supabase/supabase-js";
 import Four from "./COMPONENTS/foruthsection/Four";
 import Five from "./COMPONENTS/FIVESECTION/Five";
+
+
 export default function Home() {
   useEffect(() => {
     AOS.init({});
   
-   
   }, [])
-  
+
+
+    
   return (
    
     <main >

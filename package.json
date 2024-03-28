@@ -14,6 +14,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.14",
     "@mui/material": "^5.15.14",
+    "@supabase/auth-helpers-nextjs": "^0.9.0",
     "@supabase/supabase-js": "^2.40.0",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.3",
@@ -23,5 +24,8 @@
     "react-dom": "^18",
     "react-tabs": "^6.0.2",
     "swiper": "^11.0.7"
+  },
+  "devDependencies": {
+    "typescript": "5.4.3"
   }
 }
