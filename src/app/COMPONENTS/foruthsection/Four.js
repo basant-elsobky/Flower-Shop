@@ -19,7 +19,7 @@ function Four() {
             <img src='/images/girlflower.webp' />
           </div>
           <div className='col-md-4 col-sm-12'>
-            <ol class="circle-bullets">
+            <ol className="circle-bullets">
               <li><div className='d-flex flex-column'>
                 <h4>
                   Choose Flower</h4>

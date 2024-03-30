@@ -12,9 +12,9 @@ function Five() {
             <div className='videosection'>
 
            
-                <div class="video">
+                <div className="video">
 
-                    <div class="centered"><h2>Brand new bouquets that are sure to
+                    <div className="centered"><h2>Brand new bouquets that are sure to
                         add a pop of color to your life!</h2></div>
                 </div>
             </div>

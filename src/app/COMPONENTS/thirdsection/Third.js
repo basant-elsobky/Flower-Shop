@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Third.css';
-import supabase from '@/app/Config/Supabaseclient';
+
 import Card from './Card';
+import supabase from '../../Config/Supabaseclient';
 
 export default function Third() {
   const [smoothes, setSmoothes] = useState(null);

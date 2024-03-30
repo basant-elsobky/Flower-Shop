@@ -9,10 +9,11 @@ import 'swiper/css/pagination';
 
 import { Pagination } from 'swiper/modules';
 import styles from './swiber.module.css';
-import supabase from '@/app/Config/Supabaseclient';
+
 import StarIcon from '@mui/icons-material/Star';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 import Link from 'next/link';
+import supabase from '../../../Config/Supabaseclient';
 function Swiber() {
     const [smoothes, setSmoothes] = useState(null);
     const [fetchError, setFetchError] = useState(null);

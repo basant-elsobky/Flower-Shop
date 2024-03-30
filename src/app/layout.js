@@ -2,9 +2,7 @@
 import "./globals.css";
 import Navbar from "./COMPONENTS/NAVBAR/Navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
+import {UserContextProvider} from "./context/userContext"
 
 export const metadata = {
   title: "Create Next App",
@@ -12,16 +10,15 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
- 
   return (
     <html lang="en" >
-  
       <body >
-      <Navbar/>
-      <main>
-
-      {children}
-      </main>
+        <UserContextProvider>
+          <Navbar />
+          <main>
+            {children}
+          </main>
+        </UserContextProvider>
       </body>
     </html>
   );

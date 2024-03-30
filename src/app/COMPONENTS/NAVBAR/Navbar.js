@@ -1,48 +1,72 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './navbar.css'
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import PersonIcon from '@mui/icons-material/Person';
 
 import Link from 'next/link';
-import supabase from '@/app/Config/Supabaseclient';
-import { Button } from '@mui/material';
-function Navbar() {
+import supabase from '../../Config/Supabaseclient';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { useRouter } from 'next/navigation';
+import { userContext } from '../../context/userContext';
+
+function Navbar({ session }) {
     const [cartItemCount, setCartItemCount] = useState(null);
+    const { user, setUser } = useContext(userContext)
+    const router = useRouter()
 
     useEffect(() => {
         const getData = async () => {
-            const { count, error , data} = await supabase
+            const { count, error, data } = await supabase
                 .from('Cart')
                 .select('*', { count: 'exact', head: true })
-                setCartItemCount(count)
+            setCartItemCount(count)
         }
+
         getData();
     }, []);
+
+    const logout = async () => {
+        let { error } = await supabase.auth.signOut()
+        if (error) {
+            console.log({ error })
+        }
+
+        console.log("User logged out")
+        setUser(null)
+
+        router.push("/Account/Login")
+
+    }
+
+
+
+
+
     return (
 
         <div className='topnav'>
-            <nav class="navbar navbar-expand-lg ">
-                <div class="container-fluid container">
+            <nav className="navbar navbar-expand-lg ">
+                <div className="container-fluid container">
 
                     <img src="/images/logo.webp" alt="Logo" />
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <Link href='/' class="nav-item">
-                                <li class="nav-link active" aria-current="page" href="#">Home</li>
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <Link href='/' className="nav-item">
+                                <li className="nav-link active" aria-current="page" href="#">Home</li>
                             </Link>
-                            <Link href='' class="nav-item">
-                                <li class="nav-link" href="#">most gifted</li>
+                            <Link href='' className="nav-item">
+                                <li className="nav-link" href="#">most gifted</li>
                             </Link>
-                            <Link href='' class="nav-item">
-                                <li class="nav-link" href="#">news</li>
+                            <Link href='/Admin' className="nav-item">
+                                <li className="nav-link" href="">Admin</li>
                             </Link>
-                            <Link class="nav-item" href='/Wishlist'>
-                         <li class="nav-link">wishlist</li>
+                            <Link className="nav-item" href='/Wishlist'>
+                                <li className="nav-link">wishlist</li>
                             </Link>
 
                         </ul>
@@ -54,10 +78,16 @@ function Navbar() {
                                 </Link>
                                 <span>{cartItemCount}</span>
                             </div>
-<p>hello user email</p>
-                            <PersonIcon style={{ color: 'white', fontSize: '30px' }} />
-                            <Button>sign out</Button>
+
+                            <Link href='/Account/Login'>
+
+                                <PersonIcon style={{ color: 'white', fontSize: '30px' }} />
+                            </Link>
+                            <h3>{user?.email}</h3>
                         </div>
+
+                        <ExitToAppIcon onClick={logout} />
+
 
                     </div>
                 </div>
