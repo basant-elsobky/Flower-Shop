@@ -30,6 +30,7 @@ export default function Page() {
         });
         console.log({error})
         setUser(user);
+        sessionStorage.setItem("user", JSON.stringify(user))
         setEmail('');
         setPassword('');
         // router.push("/");
