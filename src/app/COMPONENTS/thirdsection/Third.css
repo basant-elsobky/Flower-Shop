@@ -5,7 +5,7 @@
 }
 .thirdsection .flower::before{
     content:url(/images/flower.webp);
-    margin-right: 50px;
+  
 }
 @media screen and (max-width: 1000px) {
     .thirdsection .flower::before {

@@ -1,5 +1,5 @@
 .card{
-    height: 600px;
+    min-height: 600px;
     margin-bottom: 50px;
     margin-top: 10px;
     text-align: left;
@@ -33,3 +33,13 @@
     color: rgba(0, 0, 0, 0.615) !important;
    
 }
+@media screen and (max-width: 992px) {
+    .card {
+        min-height: 400px;
+    }
+  }
+@media(min-width: 1018px) {
+    .card {
+       min-height: 200px;
+    }
+  }

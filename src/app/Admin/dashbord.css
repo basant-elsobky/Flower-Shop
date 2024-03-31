@@ -1,8 +1,11 @@
-.admin{
-    margin-top: 100px;
+.admin {
+padding-top: 100px;
+   
+
 }
 
 @media screen and (max-width: 1000px) {
-    #addProductBtn{
+    #addProductBtn {
         margin-top: 10px;
-     }}
+    }
+}

@@ -12,7 +12,7 @@ import PinterestIcon from '@mui/icons-material/Pinterest';
 export default function App() {
   return (
     < >
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+      <Swiper loop={true} navigation={true} modules={[Navigation]} className="mySwiper">
         <SwiperSlide className='slide1'  >
           <div >
             <h2 >find your own <br></br> happiness <span><img src='/images/leafes.webp' /></span></h2>

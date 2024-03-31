@@ -15,10 +15,10 @@ function Page() {
 
 
   return (
-    <>
+    <div className="">
       
     <Dashpord  />
-    </>
+    </div>
   )
 }
 

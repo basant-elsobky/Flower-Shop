@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react'
 import './dashbord.css'
 import supabase from '../Config/Supabaseclient';
 
-import DeleteIcon from '@mui/icons-material/Delete';
+
 import Tr from './Tr'
+import First from '../[Detailsid]/first/First';
 function Dashpord() {
     const [posts, setposts] = useState(null);
     const [fetchError, setFetchError] = useState(null);
@@ -65,9 +66,10 @@ function Dashpord() {
     
 
     return (
-        <div className='admin'>
+        <>
+            <First name="ADD NEW FLOWER..!"/>
             <div className="container py-2 mt-5">
-                <h1 className=" text-center p-2 rounded">ADD NEW FLOWER..!</h1>
+               
                 <div className="crud__form">
                     <form onSubmit={handleaddProductBtn}>
                         <div className="row">
@@ -97,11 +99,11 @@ function Dashpord() {
                 </div>
             </div>
 
-            <section>
-                <div className="container py-2">
+            <section >
+                <div className="container py-2" >
 
-                    <table className="table text-center">
-                        <thead>
+                    <table className="table text-center" >
+                        <thead >
                             <tr  >
                                 <th>Img </th>
                                 <th>name</th>
@@ -110,7 +112,7 @@ function Dashpord() {
                                 <th>Delete</th>
                             </tr>
                         </thead>
-                        <tbody id="showData">
+                        <tbody id="showData" >
                             {fetchError && <p>fetchError</p>}
                             {posts && (
                                 <>
@@ -130,7 +132,7 @@ function Dashpord() {
                 </div>
 
             </section>
-        </div>
+        </>
     )
 }
 

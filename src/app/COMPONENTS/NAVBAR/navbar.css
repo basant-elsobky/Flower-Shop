@@ -12,12 +12,16 @@
     padding: 0;
 
 }
+
 .topnav .nav-link:hover {
     color: yellow;
 }
+.topnav .nav-link:active {
+color: black!important;
+}
 
 .topnav {
-
+   
     z-index: 1000;
     background-color: transparent;
     position: fixed;
@@ -56,3 +60,18 @@
     font-size: 15px;
     text-align: center;
 }
+
+@media screen and (max-width: 900px) {
+    .topnav .nav-link {
+        color: black;
+
+padding:10px;
+    }
+    .navbar .topnav .collapse{
+        width: 100%;
+        z-index: 2;
+        background-color:rgb(231, 229, 229);
+        color: black !important;
+   
+    }}
+    
