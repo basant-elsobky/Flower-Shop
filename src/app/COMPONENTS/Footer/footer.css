@@ -1,6 +1,9 @@
 .email{
     margin-top: 70px;
     margin-bottom: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .send{
     border: none;
