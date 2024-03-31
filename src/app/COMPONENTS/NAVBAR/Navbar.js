@@ -10,6 +10,7 @@ import supabase from '../../Config/Supabaseclient';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { useRouter } from 'next/navigation';
 import { userContext } from '../../context/userContext';
+
 function Navbar() {
   
     const router = useRouter()
@@ -54,7 +55,7 @@ function Navbar() {
     return (
 
 
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <nav className="navbar navbar-expand-lg ">
             <div className="container-fluid topnav ">
                 <img src="/images/logo.webp" alt="Logo" />
 

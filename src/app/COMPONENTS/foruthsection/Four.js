@@ -15,10 +15,10 @@ function Four() {
 
       <div className='bottomsection'>
         <div className='row'>
-          <div className='col-md-8 col-sm-12'>
-            <img src='/images/girlflower.webp' />
+          <div className='col-md-7 col-sm-12'>
+            <img src='/images/try2.jpg' />
           </div>
-          <div className='col-md-4 col-sm-12'>
+          <div className='col-md-5 col-sm-12'>
             <ol className="circle-bullets">
               <li><div className='d-flex flex-column'>
                 <h4>

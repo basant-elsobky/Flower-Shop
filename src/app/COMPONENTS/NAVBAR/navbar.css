@@ -8,20 +8,23 @@
     text-decoration: none;
     border-bottom: none;
 }
+.navbar{
+    padding: 0;
 
+}
 .topnav .nav-link:hover {
     color: yellow;
 }
 
 .topnav {
-   padding-top: 10px;
-    z-index: 99;
-    background-color: var(--pinkcolor);
+
+    z-index: 1000;
+    background-color: transparent;
     position: fixed;
-    width: 100%;
     top: 0;
     left: 0;
     width: 100%;
+    margin-top: 20px;
 }
 
 .topnav img {

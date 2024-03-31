@@ -1,21 +1,20 @@
 .mySwiper {
     height: 100vh;
-
     font-optical-sizing: auto;
     text-transform: capitalize !important;
     color: white;
     margin-bottom: 50px;
+    top: 0;
 }
 
 .slide1 {
 
-  
     height: 800px;
     padding: 70px;
     display: flex;
     padding-top: 270px;
     background-repeat:no-repeat;
-    background-image: url('/images/slider-bg1_2000x.webp');
+    background-image: url('/images/try1.jpg');
     background-size: cover;
   
     background-position: center;
@@ -56,10 +55,10 @@
     border: none;
     font-size: 14px;
     padding: 8px 20px;
-    height: 50px;
-    width: 120px;
+    height: 60px;
+    width: 130px;
     line-height: normal;
-    font-weight: 700;
+    font-weight: 800;
 
     text-align: center;
     text-transform: capitalize !important;
@@ -92,8 +91,8 @@
 .slide1 h2 {
     line-height: 1.2;
     font-family: var(--fontfamily);
-    font-weight: 100;
-    font-size: 50px !important;
+    font-weight: 300 !important;
+    font-size: 60px !important;
     margin-bottom: 25px;
 
 }

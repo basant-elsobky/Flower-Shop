@@ -112,3 +112,6 @@ letter-spacing: 0em;
     font-size: 16px;
     line-height: 1.5;
 }
+.bottomsection img{
+max-height: 600px;
+}

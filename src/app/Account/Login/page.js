@@ -1,5 +1,6 @@
 'use client'
 import './login.css'
+
 import First from '../../[Detailsid]/first/First';
 import Link from 'next/link';
 import supabase from '../../Config/Supabaseclient';
@@ -11,14 +12,15 @@ function page() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { setUser } = useContext(userContext)
- 
+
  
   const router = useRouter()
 
   const getUser = async () => {
     const { data: { user } } = await supabase.auth.getUser()
-
+  
     setUser(user)
+    
   }
  
  
