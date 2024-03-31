@@ -6,26 +6,12 @@ import StarIcon from '@mui/icons-material/Star';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 import HelpIcon from '@mui/icons-material/Help';
 import './description.css'
+
 import Decscriptioncontent from './Decscriptioncontent';
 import Swiber from './swibers/Swiber';
-import { TextField } from '@mui/material';
 import React, { useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
 function Description() {
-    const form = useRef();
-const[sent ,setsent]=useState('Send')
-    const sendEmail = (e) => {
-        e.preventDefault();
-
-        emailjs.sendForm('service_107ulmj', 'template_nbhdwcb', form.current, '7lZJeYBZWISTq6zOM')
-            .then((result) => {
-                console.log(result.text);
-                setsent('Sent!')
-                form.current.reset();
-            }, (error) => {
-                console.log(error.text);
-            });
-    };
+    
     return (
         <div className='container'>
             <Tabs >
@@ -81,18 +67,9 @@ const[sent ,setsent]=useState('Send')
                     <Swiber />
                 </div>
 
-                <div className='email '>
-                    <form ref={form} onSubmit={sendEmail}>
-                        <div className='d-flex align-content-between align-items-center justify-content-center'>
+        
 
-                            <TextField type="email" name="user_email" id="standard-basic" label="Enter Your Email" variant="standard" required />
-                            <input className='send' type="submit" value={sent} />
-                        </div>
-                    </form>
-                  
                 </div>
-            </div>
-
         </div>
     )
 }

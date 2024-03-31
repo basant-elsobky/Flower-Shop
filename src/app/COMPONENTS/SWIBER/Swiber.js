@@ -15,11 +15,10 @@ export default function App() {
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         <SwiperSlide className='slide1'  >
           <div >
+            <h2 >find your own <br></br> happiness <span><img src='/images/leafes.webp' /></span></h2>
 
-            <h2 data-aos="fade-right">find your own <br></br> happiness <span><img src='/images/leafes.webp' /></span></h2>
-
-            <p data-aos="fade-right" data-aos-delay="200">the best gift for those you love.fresh flower delivery <br></br> daily and around a clock</p>
-            <button data-aos="fade-right" data-aos-delay="300">shop now</button>
+            <p  >the best gift for those you love.fresh flower delivery <br></br> daily and around a clock</p>
+            <button >shop now</button>
             <div className='socialicons d-flex flex-row align-content-center ' >
               <TwitterIcon className='icons' />
               <FacebookIcon className='icons' />

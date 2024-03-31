@@ -17,6 +17,12 @@ margin-top:60px;
     .foursection .topsection::after{
         display: none;  
     }
+    .bottomsection .circle-bullets{
+ margin-top: 20px;
+    }
+    .foursection{
+      margin-top:20px;
+    }
   }
   .topsection{
     margin-bottom: 70px;
@@ -52,6 +58,7 @@ width: 100%;
     counter-reset:item; 
     margin:0; 
     padding-left:0; 
+    cursor: pointer;
 }
 ol.circle-bullets>li {
     counter-increment:item; 

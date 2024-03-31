@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Third.css';
 
 import Card from './Card';
 import supabase from '../../Config/Supabaseclient';
+import { userContext } from '../../context/userContext';
 
 export default function Third() {
-  const [smoothes, setSmoothes] = useState(null);
-  const [fetchError, setFetchError] = useState(null);
 
+  const [fetchError, setFetchError] = useState(null);
+const {products, setproducts}=useContext(userContext)
   useEffect(() => {
     const getData = async () => {
      
@@ -20,8 +21,8 @@ export default function Third() {
           setSmoothes(null);
         }  if (data ) {
           
-          setSmoothes(data);
           
+          setproducts(data)
           setFetchError(null);
         }
     }
@@ -41,15 +42,15 @@ export default function Third() {
 
       {fetchError && <p>{fetchError}</p>}
 
-      {smoothes && (
+      {products && (
         <div className='row'>
-          {smoothes.map(smooth => (
+          {products.map(smooth => (
             <>
 
           
-                <div className='col-md-4 col-sm-12'>
+                <div  className='col-md-4 col-sm-12'>
 
-                  <Card key={smooth.id} smooth={smooth} />
+                  <Card key={smooth.id}  smooth={smooth} />
                 </div>
              
 

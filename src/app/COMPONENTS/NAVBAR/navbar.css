@@ -14,19 +14,24 @@
 }
 
 .topnav {
-    z-index: 1000;
+   padding-top: 10px;
+    z-index: 99;
     background-color: var(--pinkcolor);
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
+    width: 100%;
 }
 
 .topnav img {
     max-height: 80px;
-    margin: 0 auto;
+    margin-left: 30px ;
     max-width: 100%;
     padding-right: 30px;
+}
+.navbar-toggler{
+    margin-right: 30px ;
 }
 .nav-item{
     text-decoration: none;

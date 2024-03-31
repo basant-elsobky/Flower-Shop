@@ -4,29 +4,33 @@
     font-optical-sizing: auto;
     text-transform: capitalize !important;
     color: white;
+    margin-bottom: 50px;
 }
 
 .slide1 {
 
   
-
     height: 800px;
     padding: 70px;
     display: flex;
     padding-top: 270px;
-
+    background-repeat:no-repeat;
     background-image: url('/images/slider-bg1_2000x.webp');
     background-size: cover;
+  
     background-position: center;
     background-attachment: fixed;
+    
+    
+    
 }
 .slide3{
     height: 800px;
     padding: 70px;
     display: flex;
     padding-top: 270px;
-  
-
+    background-repeat:no-repeat;
+    background-size:contain;
     background-image: url('/images/slider-bg3_2000x.webp');
     background-size: cover;
     background-position: center;
@@ -118,11 +122,13 @@
 }
 
 .slide2 {
+    background-size:contain;
     background-image: url('/images/slider-bg2_2000x.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     height: 800px;
+    background-repeat:no-repeat;
     padding: 70px;
     display: flex;
 flex-direction: column;

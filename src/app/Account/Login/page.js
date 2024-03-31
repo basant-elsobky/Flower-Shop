@@ -11,13 +11,20 @@ function page() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { setUser } = useContext(userContext)
+ 
+ 
   const router = useRouter()
 
   const getUser = async () => {
     const { data: { user } } = await supabase.auth.getUser()
-    console.log({ user })
+
     setUser(user)
   }
+ 
+ 
+  
+   
+
 
   const handleSignIn = async (e) => {
     e.preventDefault();

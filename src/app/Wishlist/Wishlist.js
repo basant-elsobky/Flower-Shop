@@ -1,9 +1,11 @@
 'use client'
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import supabase from '../Config/Supabaseclient'
 import './wishlist.css'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { userContext } from '../context/userContext';
 function Wishlist({wishlist,ondelete}) {
+
     const handledelete =async ()=>{
         const {data,error} =await supabase
         .from('Wishlist')
@@ -15,10 +17,11 @@ function Wishlist({wishlist,ondelete}) {
 ondelete(wishlist.id)
         }
     }
-    const [color, setColor] = useState('');
-   
+
+  
   return (
     <>
+  
       <div className="shopping-cart">
                 <div className="item">
                     <div className="buttons">
@@ -43,6 +46,7 @@ ondelete(wishlist.id)
                     </div>
 
                 </div>
+
 
 
 

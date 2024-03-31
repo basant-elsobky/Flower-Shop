@@ -1,0 +1,17 @@
+.email{
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+  .send{
+    border: none;
+    background-color: transparent;
+    font-weight: 600;
+
+  }
+  .send:hover{
+    color: var(--pinkcolor);
+  }
+  .email::after{
+    margin-top: 40px;
+    content:url('/images/leafes.webp');
+  }

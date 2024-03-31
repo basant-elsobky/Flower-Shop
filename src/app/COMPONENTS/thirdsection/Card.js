@@ -8,7 +8,7 @@ function Card({ smooth }) {
     return (
         <>
 
-            <div className="card" >
+            <div  className="card" >
             <Link href={'/'+smooth.id}>
 
                 <img src={smooth.image} className="img" alt="..." />

@@ -1,6 +1,7 @@
 .secondsection{
-    margin-top: 150px;
+padding-top: 150px;
     text-transform: capitalize;
+
 }
 .leftsidesection h3{
     color: var(--secondcolor);
@@ -52,3 +53,13 @@
     transition: all .4s ease-in-out;
     
 }
+.leftsidesection{
+    margin-bottom: 50px;
+}
+
+
+@media screen and (max-width: 992px) {
+    .secondsection {
+     padding: 0;
+    }
+  }

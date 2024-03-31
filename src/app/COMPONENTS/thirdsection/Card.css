@@ -1,9 +1,13 @@
 .card{
     height: 600px;
     margin-bottom: 50px;
-    margin-top: 40px;
+    margin-top: 10px;
     text-align: left;
 
+    cursor: pointer;
+}
+.card img{
+    width: 100%;
 }
 .card:hover .card-title {
     color: var(--pinkcolor) !important;

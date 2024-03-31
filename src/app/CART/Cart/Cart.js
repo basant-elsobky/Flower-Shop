@@ -1,10 +1,11 @@
 'use client'
-import React, { useState } from 'react'
+import React, {  useState } from 'react'
 import './cart.css'
-import supabase from '../Config/Supabaseclient'
+import supabase from '../../Config/Supabaseclient'
 import FavoriteIcon from '@mui/icons-material/Favorite';
-function Cart({ cart, ondelete }) {
-    
+
+function Cart({ cart, ondelete ,ondeleteforcartcount}) {
+  
     const handledelete = async () => {
         const { data, error } = await supabase
             .from('Cart')
@@ -18,7 +19,7 @@ function Cart({ cart, ondelete }) {
         }
         if (data) {
             ondelete(cart.id)
-        
+           
         }
     }
     const [quantity, setQuantity] = useState(1);
