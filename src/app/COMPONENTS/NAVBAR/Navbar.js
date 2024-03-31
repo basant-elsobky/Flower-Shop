@@ -19,11 +19,13 @@ function Navbar() {
   
     useEffect(() => {
         const getData = async () => {
-            const { count, error , data} = await supabase
+            const { error , data} = await supabase
                 .from('Cart')
-                .select('*', { count: 'exact', head: true })
-           
-                setcartcountt(count)
+                .select()
+
+                setcartcountt(data.length)
+
+            console.log({data})
         }
         getData();
 

@@ -11,7 +11,7 @@ function page() {
   const [cart, setcart] = useState(null);
   const [fetchError, setFetchError] = useState(null);
 
-  const {cartcount,setcartcountt }=useContext(userContext)
+  const { cartcount, setcartcountt } = useContext(userContext)
 
   useEffect(() => {
     const getData = async () => {
@@ -29,44 +29,45 @@ function page() {
     }
     getData();
   }, []);
+
   const ondelete = (id) => {
     setcart(prevcart => {
       return prevcart.filter(sm => sm.id !== id)
     })
   }
- 
- 
+
+
 
   return (
     <>
-    <First name='YOUR SHOPPING CART'/>
-  {fetchError && <p>{fetchError}</p>}
-  {cartcount === 0 ? (
-    <div className="Emptycart"> 
-    <img src="images/emptycart.webp"/>
-    <h5 >No Items in cart</h5>
-    <p>Add items you want to shop</p>
-    <Link href='/'>
-      
-    <button >START SHOoPPING</button>
-    </Link>
-    
-    </div>
-   
-  ) : (
-    <>
-      {cart && (
-        <div className='carts'>
-          {cart.map((cartItem, index) => (
-            <div key={index} className=''>
-              <Cart cart={cartItem} ondelete={ondelete} />
-            </div>
-          ))}
+      <First name='YOUR SHOPPING CART' />
+      {fetchError && <p>{fetchError}</p>}
+      {cartcount === 0 ? (
+        <div className="Emptycart">
+          <img src="images/emptycart.webp" />
+          <h5 >No Items in cart</h5>
+          <p>Add items you want to shop</p>
+          <Link href='/'>
+
+            <button >START SHOoPPING</button>
+          </Link>
+
         </div>
+
+      ) : (
+        <>
+          {cart && (
+            <div className='carts'>
+              {cart.map((cartItem, index) => (
+                <div key={index} className=''>
+                  <Cart cart={cartItem} ondelete={ondelete} />
+                </div>
+              ))}
+            </div>
+          )}
+        </>
       )}
     </>
-  )}
-</>
 
   )
 }
