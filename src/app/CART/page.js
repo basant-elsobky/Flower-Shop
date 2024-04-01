@@ -11,20 +11,32 @@ function page() {
   const [cart, setcart] = useState(null);
   const [fetchError, setFetchError] = useState(null);
 
-  const { cartcount, setcartcountt } = useContext(userContext)
+  const { user, cartcount } = useContext(userContext)
 
   useEffect(() => {
     const getData = async () => {
       const { data, error } = await supabase
-        .from('Cart')
+        .from('CartItems')
         .select()
+        .eq('user-id', user.id)
+
+      console.log(data)
+      const productIds = data.map(item => item['product-id']);
+      console.log({productIds})
+
+      const { data: products, error: productError } = await supabase
+        .from('Image')
+        .select()
+        .in('id', productIds);
+
+      console.log({products})
+
       if (error) {
         setFetchError('An error occurred while fetching data');
         setcart(null);
       } if (data) {
-        setcart(data);
+        setcart(products);
         setFetchError(null);
-
       }
     }
     getData();

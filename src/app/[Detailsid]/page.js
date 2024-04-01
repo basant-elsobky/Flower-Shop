@@ -17,7 +17,7 @@ import { userContext } from '../context/userContext';
 function page({ params }) {
   const [add, setadd] = useState('ADD TO CART')
   const [wishlist, setwishlist] = useState('ADD TO WISHLIST')
-  const {setcartcountt} = useContext(userContext)
+  const {user, setcartcountt} = useContext(userContext)
 
 
 
@@ -61,14 +61,11 @@ function page({ params }) {
   const addToCart = async () => {
 
     const { data, error } = await supabase
-      .from('Cart')
-      .insert([{
-        image: image,
-        price: price,
-        name: name,
-
-
-      }])
+      .from('CartItems')
+      .insert({
+        'product-id': postid,
+        'user-id': user.id
+      })
       .select();
 
     setadd('ADDED !')
