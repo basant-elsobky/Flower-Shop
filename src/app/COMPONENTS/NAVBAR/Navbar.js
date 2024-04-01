@@ -11,34 +11,42 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { useRouter } from 'next/navigation';
 import { userContext } from '../../context/userContext';
 
-function Navbar() {
-  
-    const router = useRouter()
+const getUserFromLocalStorage = () => {
+    const storedUser = sessionStorage.getItem("user")
+    if (storedUser) return JSON.parse(storedUser)
 
-    const { user, setUser,cartcount,setcartcountt } = useContext(userContext)
-  
+    return null
+}
+
+function Navbar() {
+    const router = useRouter()
+    const { user, setUser, cartcount, setcartcountt } = useContext(userContext)
+
     useEffect(() => {
+        setUser(getUserFromLocalStorage())
+
         const getData = async () => {
-            const { error , data} = await supabase
+            const { error, data } = await supabase
                 .from('CartItems')
                 .select()
                 .eq('user-id', user.id)
 
-                setcartcountt(data.length)
+            setcartcountt(data.length)
 
-            console.log({data})
+            console.log({ data })
         }
-        getData();
 
-
+        if (user) {
+            getData();
+        }
     }, []);
-   
+
 
     useEffect(() => {
         import("bootstrap/dist/js/bootstrap");
     }, [])
 
-   
+
 
     const logout = async () => {
         let { error } = await supabase.auth.signOut()

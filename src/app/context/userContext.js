@@ -2,18 +2,11 @@
 
 import { createContext, useState } from "react";
 
-const getUserFromLocalStorage = () => {
-    const storedUser = sessionStorage.getItem("user")
-    if (storedUser) return JSON.parse(storedUser)
-
-    return null
-}
-
 const userContext = createContext()
 
 function UserContextProvider({ children }) {
     const [products, setproducts] = useState([])
-    const [user, setUser] = useState(getUserFromLocalStorage())
+    const [user, setUser] = useState(null)
     const [cartcount, setcartcountt] = useState(0)
     const [wishlistcount, setwishlistcount] = useState(0)
 
