@@ -1,8 +1,8 @@
 'use client'
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { useRouter } from "next/navigation";
 import './page.css';
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { useRouter } from "next/navigation";
 import supabaseUrl from '../../Config/Supabaseclient';
 import supabaseKey from '../../Config/Supabaseclient';
 import { Dashboard } from '@mui/icons-material';
@@ -10,30 +10,33 @@ import First from '../../[Detailsid]/first/First';
 import Link from 'next/link';
 import Alert from '@mui/material/Alert';
 import CheckIcon from '@mui/icons-material/Check';
+import { userContext } from '@/app/context/userContext';
 
 export default function Page() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [user, setUser] = useState(null);
     const [check, setcheck] = useState(' ');
-
+    const { setUser } = useContext(userContext);
     const router = useRouter();
 
     const supabase = createClientComponentClient(supabaseUrl, supabaseKey)
 
     const handleSignup = async (e) => {
         e.preventDefault();
-        let { data, error } = await supabase.auth.signUp({
+        let { data: { user }, error } = await supabase.auth.signUp({
             email,
             password,
 
         });
-        router.refresh();
+        console.log({error})
+        setUser(user);
+        sessionStorage.setItem("user", JSON.stringify(user))
         setEmail('');
         setPassword('');
+        // router.push("/");
         setcheck(<>
 <Alert icon={<CheckIcon  fontSize="inherit" />} severity="success">
-                            Here is a gentle confirmation that your account was successful.
+                            {error ? error.message : "Here is a gentle confirmation that your account was successful."}
                         </Alert>
         </>)
 

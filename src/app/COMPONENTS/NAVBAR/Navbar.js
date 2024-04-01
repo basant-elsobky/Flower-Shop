@@ -19,11 +19,14 @@ function Navbar() {
   
     useEffect(() => {
         const getData = async () => {
-            const { count, error , data} = await supabase
-                .from('Cart')
-                .select('*', { count: 'exact', head: true })
-           
-                setcartcountt(count)
+            const { error , data} = await supabase
+                .from('CartItems')
+                .select()
+                .eq('user-id', user.id)
+
+                setcartcountt(data.length)
+
+            console.log({data})
         }
         getData();
 
@@ -45,6 +48,7 @@ function Navbar() {
 
         console.log("User logged out")
         setUser(null)
+        setcartcountt(0)
 
         router.push("/Account/Login")
 

@@ -18,7 +18,7 @@ function page() {
 
   const getUser = async () => {
     const { data: { user } } = await supabase.auth.getUser()
-  
+    sessionStorage.setItem("user", JSON.stringify(user))
     setUser(user)
     
   }

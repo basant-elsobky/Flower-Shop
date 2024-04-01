@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import supabase from '../Config/Supabaseclient';
 import StarIcon from '@mui/icons-material/Star';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
@@ -12,10 +12,12 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import './Deatils.css'
+import { userContext } from '../context/userContext';
 
 function page({ params }) {
   const [add, setadd] = useState('ADD TO CART')
   const [wishlist, setwishlist] = useState('ADD TO WISHLIST')
+  const {user, setcartcountt} = useContext(userContext)
 
 
 
@@ -59,17 +61,16 @@ function page({ params }) {
   const addToCart = async () => {
 
     const { data, error } = await supabase
-      .from('Cart')
-      .insert([{
-        image: image,
-        price: price,
-        name: name,
-
-
-      }])
+      .from('CartItems')
+      .insert({
+        'product-id': postid,
+        'user-id': user.id
+      })
       .select();
 
     setadd('ADDED !')
+    console.log({data})
+    setcartcountt(count => count + 1)
 
   };
   const addTowishlist = async () => {

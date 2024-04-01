@@ -11,62 +11,75 @@ function page() {
   const [cart, setcart] = useState(null);
   const [fetchError, setFetchError] = useState(null);
 
-  const {cartcount,setcartcountt }=useContext(userContext)
+  const { user, cartcount } = useContext(userContext)
 
   useEffect(() => {
     const getData = async () => {
       const { data, error } = await supabase
-        .from('Cart')
+        .from('CartItems')
         .select()
+        .eq('user-id', user.id)
+
+      console.log(data)
+      const productIds = data.map(item => item['product-id']);
+      console.log({productIds})
+
+      const { data: products, error: productError } = await supabase
+        .from('Image')
+        .select()
+        .in('id', productIds);
+
+      console.log({products})
+
       if (error) {
         setFetchError('An error occurred while fetching data');
         setcart(null);
       } if (data) {
-        setcart(data);
+        setcart(products);
         setFetchError(null);
-
       }
     }
     getData();
   }, []);
+
   const ondelete = (id) => {
     setcart(prevcart => {
       return prevcart.filter(sm => sm.id !== id)
     })
   }
- 
- 
+
+
 
   return (
     <>
-    <First name='YOUR SHOPPING CART'/>
-  {fetchError && <p>{fetchError}</p>}
-  {cartcount === 0 ? (
-    <div className="Emptycart"> 
-    <img src="images/emptycart.webp"/>
-    <h5 >No Items in cart</h5>
-    <p>Add items you want to shop</p>
-    <Link href='/'>
-      
-    <button >START SHOoPPING</button>
-    </Link>
-    
-    </div>
-   
-  ) : (
-    <>
-      {cart && (
-        <div className='carts'>
-          {cart.map((cartItem, index) => (
-            <div key={index} className=''>
-              <Cart cart={cartItem} ondelete={ondelete} />
-            </div>
-          ))}
+      <First name='YOUR SHOPPING CART' />
+      {fetchError && <p>{fetchError}</p>}
+      {cartcount === 0 ? (
+        <div className="Emptycart">
+          <img src="images/emptycart.webp" />
+          <h5 >No Items in cart</h5>
+          <p>Add items you want to shop</p>
+          <Link href='/'>
+
+            <button >START SHOoPPING</button>
+          </Link>
+
         </div>
+
+      ) : (
+        <>
+          {cart && (
+            <div className='carts'>
+              {cart.map((cartItem, index) => (
+                <div key={index} className=''>
+                  <Cart cart={cartItem} ondelete={ondelete} />
+                </div>
+              ))}
+            </div>
+          )}
+        </>
       )}
     </>
-  )}
-</>
 
   )
 }

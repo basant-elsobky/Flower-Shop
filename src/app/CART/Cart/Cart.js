@@ -1,10 +1,12 @@
 'use client'
-import React, {  useState } from 'react'
+import React, {  useContext, useState } from 'react'
 import './cart.css'
 import supabase from '../../Config/Supabaseclient'
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { userContext } from '@/app/context/userContext';
 
 function Cart({ cart, ondelete ,ondeleteforcartcount}) {
+    const {setcartcountt} = useContext(userContext)
   
     const handledelete = async () => {
         const { data, error } = await supabase
@@ -19,7 +21,7 @@ function Cart({ cart, ondelete ,ondeleteforcartcount}) {
         }
         if (data) {
             ondelete(cart.id)
-           
+            setcartcountt(count => count - 1)
         }
     }
     const [quantity, setQuantity] = useState(1);
