@@ -10,7 +10,6 @@ import First from "../[Detailsid]/first/First";
 function page() {
   const [cart, setcart] = useState(null);
   const [fetchError, setFetchError] = useState(null);
-
   const { user, cartcount } = useContext(userContext)
 
   useEffect(() => {
@@ -19,18 +18,11 @@ function page() {
         .from('CartItems')
         .select()
         .eq('user-id', user.id)
-
-      console.log(data)
       const productIds = data.map(item => item['product-id']);
-      console.log({productIds})
-
       const { data: products, error: productError } = await supabase
         .from('Image')
         .select()
         .in('id', productIds);
-
-      console.log({products})
-
       if (error) {
         setFetchError('An error occurred while fetching data');
         setcart(null);
@@ -41,7 +33,7 @@ function page() {
     }
     getData();
   }, []);
-
+  
   const ondelete = (id) => {
     setcart(prevcart => {
       return prevcart.filter(sm => sm.id !== id)

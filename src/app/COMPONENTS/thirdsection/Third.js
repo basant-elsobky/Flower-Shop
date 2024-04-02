@@ -8,26 +8,7 @@ import { userContext } from '../../context/userContext';
 export default function Third() {
 
   const [fetchError, setFetchError] = useState(null);
-const {products, setproducts}=useContext(userContext)
-  useEffect(() => {
-    const getData = async () => {
-     
-        const { data, error } = await supabase
-          .from('Image')
-          .select()
-       
-        if (error) {
-          setFetchError('An error occurred while fetching data');
-          setSmoothes(null);
-        }  if (data ) {
-          
-          
-          setproducts(data)
-          setFetchError(null);
-        }
-    }
-    getData();
-  }, []);
+const {products}=useContext(userContext)
 
 
   return (

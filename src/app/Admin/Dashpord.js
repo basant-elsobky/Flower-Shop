@@ -1,11 +1,13 @@
 ' use client'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './dashbord.css'
 import supabase from '../Config/Supabaseclient';
 
 
 import Tr from './Tr'
 import First from '../[Detailsid]/first/First';
+import { userContext } from '../context/userContext';
+import { useRouter } from 'next/router';
 function Dashpord() {
     const [posts, setposts] = useState(null);
     const [fetchError, setFetchError] = useState(null);
@@ -14,8 +16,8 @@ function Dashpord() {
     const [img, setimg] = useState('')
     const [add, setadd] = useState('Add Product')
 
-
-
+const {user} =useContext(userContext)
+// const router=useRouter()
     useEffect(() => {
         const getData = async () => {
 
@@ -29,22 +31,20 @@ function Dashpord() {
             } if (data) {
 
                 setposts(data);
-                
+
                 setFetchError(null);
 
             }
         }
         getData();
-
-
     }, []);
 
-   
-    const ondelete = (id)=>{
-        setposts(prevdata =>{
-          return prevdata.filter(sm=>sm.id !==id)
+
+    const ondelete = (id) => {
+        setposts(prevdata => {
+            return prevdata.filter(sm => sm.id !== id)
         })
-      }
+    }
 
     const handleaddProductBtn = async () => {
 
@@ -58,18 +58,21 @@ function Dashpord() {
         setimg('')
         setprice('')
 
-       
-       
-        
-        
+
+
+
+
     }
-    
+
 
     return (
         <>
-            <First name="ADD NEW FLOWER..!"/>
+        {user.email==='basantheshem9@gmail.com'?(
+           <>
+
+            <First name="ADD NEW FLOWER..!" />
             <div className="container py-2 mt-5">
-               
+
                 <div className="crud__form">
                     <form onSubmit={handleaddProductBtn}>
                         <div className="row">
@@ -119,7 +122,7 @@ function Dashpord() {
                                     {posts.map(posts => (
                                         <>
 
-                                           <Tr posts={posts} ondelete={ondelete}/>
+                                            <Tr posts={posts} ondelete={ondelete} />
 
 
                                         </>
@@ -132,6 +135,11 @@ function Dashpord() {
                 </div>
 
             </section>
+           </> 
+        ):(<>
+
+            <First name="You are not allwoed to be here ..!" />
+        </>)}
         </>
     )
 }

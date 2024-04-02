@@ -115,3 +115,57 @@ letter-spacing: 0em;
 .bottomsection img{
 max-height: 600px;
 }
+
+
+@media screen and (max-width: 992px) {
+  .foursection h5{
+    margin-bottom: 0px;
+  }
+  .foursection h2{
+    line-height: 1;
+    font-size: 40px;
+    padding-bottom: 10px;
+  }
+  .foursection p{
+    font-size: 14px;
+  }
+ 
+ol.circle-bullets>li {
+    counter-increment:item; 
+    list-style:none inside; 
+    margin: 10px 0;
+  
+    font-size: 14px;
+    line-height: 1;
+    padding: 10px 0;
+}
+ol.circle-bullets>li:before {
+    content:counter(item) ;
+    margin-right: 12px;
+    padding: 4px;
+    display: block;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    font-size: 14px;
+}
+.circle-bullets h4{
+    font-size: 20px;
+
+
+
+    line-height: 1;
+}
+
+.circle-bullets p{
+    font-size: 14px;
+    line-height: 1.3;
+}
+.bottomsection img{
+margin-top: 0;
+}
+
+
+}

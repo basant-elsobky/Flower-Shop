@@ -1,27 +1,25 @@
-
-
-.signup{
+.signup {
 	margin-top: 50px;
 
-	
-	
 }
-.signup h6{
+
+.signup h6 {
 	display: flex;
 	align-items: center;
 	justify-content: center;
- }
-input{
-	padding: 14px;
-    width: 60%;
-	margin: 10px auto;
-    margin-bottom: 20px;
-	border: 1px solid #e4e4e4;
-    max-width: 100%;
-	display: flex;
-
 }
-button{
+
+input {
+	padding: 14px;
+	width: 60%;
+	margin: 10px auto;
+	margin-bottom: 20px;
+	border: 1px solid #e4e4e4;
+	max-width: 100%;
+	display: flex;
+}
+
+button {
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
@@ -38,6 +36,7 @@ button{
 	transition: .2s ease-in;
 	cursor: pointer;
 }
-button:hover{
+
+button:hover {
 	background: var(--pinkcolor);
 }

@@ -1,62 +1,70 @@
-.flowercard{
-    margin-top: 70px;
-}
-.flowercard img{
-    width: 100%;
-}
-.flowercard h2{
-    font-family: var(--fontfamily);
-    font-size: 23px;
-    line-height: 35.2px;
-    margin: 0 0 10px;
-    font-weight: var(--fontweightlarge);
-}
-.pricesection {
-    display: flex;
-    align-items: center;
-}
-.pricesection h3{
-    font-weight: var(--fontweightmeidum);
-padding-right: 50px;
-font-size: 22px;
-width: 100%;
-}
-.pricesection span{
-    width: 100%;
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #e19b9a;
-    font-weight: var(--fontweightmeidum);
-}
-.details ul li{
-    line-height: 35px;
-    color: #000;
-    text-align: left;
-    margin-bottom: 0;
-    margin-top: 15px;
-   font-weight: var(--fontweightmeidum);
+.flowercard {
+  margin-top: 70px;
 }
 
-  
-  
-  .addbuttons .add{
+.flowercard img {
+  width: 100%;
+}
+
+.flowercard h2 {
+  font-family: var(--fontfamily);
+  font-size: 23px;
+  line-height: 35.2px;
+  margin: 0 0 10px;
+  font-weight: var(--fontweightlarge);
+}
+
+.pricesection {
+  display: flex;
+  align-items: center;
+}
+
+.pricesection h3 {
+  font-weight: var(--fontweightmeidum);
+  padding-right: 50px;
+  font-size: 22px;
+  width: 100%;
+}
+
+.pricesection span {
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #e19b9a;
+  font-weight: var(--fontweightmeidum);
+}
+
+.details ul li {
+  line-height: 35px;
+  color: #000;
+  text-align: left;
+  margin-bottom: 0;
+  margin-top: 15px;
+  font-weight: var(--fontweightmeidum);
+}
+
+
+
+.addbuttons .add {
   color: white;
   margin-right: 20px;
   width: 50%;
-    float: left;
-    letter-spacing: 0.06em;
-    background: #e19b9a;
-    border: none;
-    color: #ffffff;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    padding: 10px;
+  float: left;
+  letter-spacing: 0.06em;
+  background: #e19b9a;
+  border: none;
+  color: #ffffff;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 10px;
 }
-.addbuttons .add:hover{
+
+.addbuttons .add:hover {
   background-color: black;
   color: white;
 }
-.addbuttons .washilist{
+
+.addbuttons .washilist {
   background: none;
   color: #333;
   box-shadow: 0 0 0 1px #e4e4e4;
@@ -64,25 +72,28 @@ width: 100%;
   border: none;
   width: 50%;
   margin-bottom: 10px;
-    margin-right: 10px;
-    padding: 10px;
+  margin-right: 10px;
+  padding: 10px;
 }
-.addbuttons .washilist:hover{
+
+.addbuttons .washilist:hover {
   background: #e19b9a;
   border: none;
   color: #ffffff;
 }
-.addbuttons{
-    align-items: center;
-    justify-content: center;
-margin-bottom: 10px;
-margin-top: 70px;
-  }
-  .visitorspan{
-    background-color: var(--pinkcolor);
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5;
-    color: white;
-    padding: 5px;
-  }
+
+.addbuttons {
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: 70px;
+}
+
+.visitorspan {
+  background-color: var(--pinkcolor);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: white;
+  padding: 5px;
+}

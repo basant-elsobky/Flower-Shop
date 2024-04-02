@@ -9,46 +9,44 @@ import '../CART/page.css'
 import Link from "next/link";
 import First from "../[Detailsid]/first/First";
 function page() {
-  const {wishlistcount,setwishlistcount}=useContext(userContext)
+  const { user, cartcount } = useContext(userContext)
 
   const [wishlist, setwishlist] = useState(null);
+  const{wishlistcount, setwishlistcount}  = useContext(userContext);
   const [fetchError, setFetchError] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
-
-      const { data, error } = await supabase
-        .from('Wishlist')
-        .select()
-
-      if (error) {
-        setFetchError('An error occurred while fetching data');
-        setwishlist(null);
-      } if (data) {
-
-        setwishlist(data);
-        setFetchError(null);
-      }
+    const {data,error}=await supabase
+    .from('Wishitems')
+    .select()
+    .eq('user-id',user.id)
+    const productIds = data.map(item => item['product-id']);
+    const { data: products, error: productError } = await supabase
+    .from('Image')
+    .select()
+    .in('id',productIds)
+    if (error) {
+      setFetchError('An error occurred while fetching data');
+      setwishlist(null);
+    } if (data) {
+      setwishlist(products);
+      setwishlistcount(data.length);
+      setFetchError(null);
     }
-    getData();
+  }
+  getData();
+    
   }, []);
   const ondelete = (id) => {
+   
     setwishlist(prevwishlist => {
-      return prevwishlist.filter(sm => sm.id !== id)
+      return prevwishlist.filter(sm => sm.id !== id);
+    
     })
   }
 
-  useEffect(() => {
-    const getData = async () => {
-        const {count} = await supabase
-            .from('Wishlist')
-            .select('*', { count: 'exact', head: true })
-       
-            setwishlistcount(count)
-    }
-    getData();
-}, []);
-
+ 
 
   return (
     <>

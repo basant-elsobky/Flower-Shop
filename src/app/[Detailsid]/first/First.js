@@ -1,6 +1,7 @@
+import Link from 'next/link'
 import './first.css'
 
-function First( props) {
+function First(props) {
     return (
         <div className='first'>
             <div className='top'>
@@ -10,8 +11,15 @@ function First( props) {
 
                 <div className='d-flex'>
                     <ul >
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#news">shop our products</a></li>
+                    <Link href='/'>
+
+                        <li>Home</li>
+                    </Link>
+                    <Link href='/Collection'>
+
+                        <li>shop our products</li>
+                    </Link>
+                   
                         <li><a href="#contact">{props.product}</a></li>
 
                     </ul>
@@ -19,7 +27,7 @@ function First( props) {
             </div>
 
 
-          
+
         </div>
     )
 }

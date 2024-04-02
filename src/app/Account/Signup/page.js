@@ -5,11 +5,9 @@ import './page.css';
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import supabaseUrl from '../../Config/Supabaseclient';
 import supabaseKey from '../../Config/Supabaseclient';
-import { Dashboard } from '@mui/icons-material';
+
 import First from '../../[Detailsid]/first/First';
 import Link from 'next/link';
-import Alert from '@mui/material/Alert';
-import CheckIcon from '@mui/icons-material/Check';
 import { userContext } from '@/app/context/userContext';
 
 export default function Page() {
@@ -17,6 +15,7 @@ export default function Page() {
     const [password, setPassword] = useState('');
     const [check, setcheck] = useState(' ');
     const { setUser } = useContext(userContext);
+
     const router = useRouter();
 
     const supabase = createClientComponentClient(supabaseUrl, supabaseKey)
@@ -28,23 +27,25 @@ export default function Page() {
             password,
 
         });
-        console.log({error})
+      
         setUser(user);
         sessionStorage.setItem("user", JSON.stringify(user))
         setEmail('');
         setPassword('');
         // router.push("/");
         setcheck(<>
-<Alert icon={<CheckIcon  fontSize="inherit" />} severity="success">
-                            {error ? error.message : "Here is a gentle confirmation that your account was successful."}
-                        </Alert>
+
+
+            <div class="alert alert-success" role="alert">
+                {error ? error.message : "Here is a gentle confirmation that your account was successful created."}
+
+            </div>
+
+
         </>)
 
 
     };
-    	
-    
-
 
     return (
         <div >
@@ -56,17 +57,15 @@ export default function Page() {
                         <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} name="email" placeholder="Email" required />
                         <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} name="pswd" placeholder="Password" required />
                         <button type="submit">CREATE</button>
-                      {check}
+                        {check}
                     </form>
-                        <Link href='/Account/Login'>
+                    <Link href='/Account/Login'>
+                        <h6>Have account login</h6>
+                    </Link>
+                    <Link href='/'>
 
-
-                            <h6>Have account login</h6>
-                        </Link>
-                        <Link href='/'>
-
-                            <h6>Return to store</h6>
-                        </Link>
+                        <h6>Return to store</h6>
+                    </Link>
                 </div>
 
 

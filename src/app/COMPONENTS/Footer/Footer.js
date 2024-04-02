@@ -1,38 +1,46 @@
 'use client'
 import React, { useRef, useState } from 'react'
-import { TextField } from '@mui/material';
-import emailjs from '@emailjs/browser';
+
+
 import './footer.css'
 function Footer() {
-    const form = useRef();
-const[sent ,setsent]=useState('Send')
-    const sendEmail = (e) => {
-        e.preventDefault();
 
-        emailjs.sendForm('service_107ulmj', 'template_nbhdwcb', form.current, '7lZJeYBZWISTq6zOM')
-            .then((result) => {
-                console.log(result.text);
-                setsent('Sent!')
-                form.current.reset();
-            }, (error) => {
-                console.log(error.text);
-            });
-    };
-  return (
-    <>
-        <div className='email '>
-                    <form ref={form} onSubmit={sendEmail}>
-                        <div className='d-flex align-content-between align-items-center justify-content-center'>
+    const [email, setemail] = useState('')
+    const [submit, setsubmit] = useState('send')
 
-                            <TextField type="email" name="user_email" id="standard-basic" label="Enter Your Email" variant="standard" required />
-                            <input className='send' type="submit" value={sent} />
-                        </div>
-                    </form>
-                  
-                </div>
-           
-    </>
-  )
+    const formRef = useRef(null);
+   function sendemail(event){
+    event.preventDefault();
+    fetch("https://sendmail-api-docs.vercel.app/api/send", {
+          method: "POST",
+           body: JSON.stringify({
+             to: "basantheshem9@gmail.com",
+             subject: "Flower Shop | Contact US",
+             message: `
+                 <p>Message: ${email}</p>
+               `,
+           })
+         })
+           .then(res => res.json())
+          .then(data => console.log(data))
+
+          setemail('')
+          setsubmit('sent..!')
+    }
+    return (
+        <>
+            <div className='email '>
+                <form onSubmit={sendemail} ref={formRef}>
+                    <div className='d-flex align-content-between align-items-center justify-content-center'>
+                    <input  onChange={(e) => setemail(e.target.value)} value={email} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" style={{border:'none'}} required/>
+                        <input className='send' value={submit} type="submit"  />
+                    </div>
+                </form>
+
+            </div>
+
+        </>
+    )
 }
 
 export default Footer

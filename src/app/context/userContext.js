@@ -1,6 +1,7 @@
 "use client"
 
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import supabase from "../Config/Supabaseclient";
 
 const getUserFromLocalStorage = () => {
     const storedUser = sessionStorage.getItem("user")
@@ -12,9 +13,30 @@ const getUserFromLocalStorage = () => {
 const userContext = createContext()
 
 function UserContextProvider({ children }) {
+    useEffect(() => {
+        const getData = async () => {
+         
+            const { data, error } = await supabase
+              .from('Image')
+              .select()
+           
+            if (error) {
+             
+            }  if (data ) {
+              
+              
+              setproducts(data)
+            
+            }
+        }
+        getData();
+      }, []);
+
+    
     const [products, setproducts] = useState([])
     const [user, setUser] = useState(getUserFromLocalStorage())
     const [cartcount, setcartcountt] = useState(0)
+
     const [wishlistcount, setwishlistcount] = useState(0)
 
     return (

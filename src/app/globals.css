@@ -3,6 +3,7 @@
 --maincolor:#ffffff;
 --secondcolor:  #9a9a9a;
 ;
+--yellowcolor:#ECCA37;
 --pinkcolor:#E19B9A;
 --fontweightsmall:400;
 --fontweightmedium:600;
@@ -11,3 +12,7 @@
 --fontfamily:  "Dancing Script", cursive;
 
 }
+html {
+    scroll-behavior: smooth;
+  }
+ 

@@ -1,19 +1,22 @@
-.sectionfive{
+.sectionfive {
     margin-top: 100px;
     margin-bottom: 50px;
 }
-.sectionfive .top{
+
+.sectionfive .top {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.sectionfive .top h5{
+
+.sectionfive .top h5 {
     color: #ababab;
     font-weight: 400;
     font-size: 25px;
 }
-.sectionfive .top h2{
+
+.sectionfive .top h2 {
     line-height: 1.1;
     font-size: 60px;
     padding-bottom: 20px;
@@ -24,13 +27,15 @@
     color: #333333;
     font-family: var(--fontfamily);
 }
+
 .centered {
     position: absolute;
     top: 50%;
     left: 50%;
-  
-  }
-  .centered h2{
+
+}
+
+.centered h2 {
     transform: translate(-50%, -50%);
     font-family: var(--fontfamily);
     color: black;
@@ -42,8 +47,9 @@
     position: relative;
     margin-bottom: 0;
     z-index: 1;
-  }
- .video{
+}
+
+.video {
     width: 100%;
     background-image: url('/images/lastbg.webp');
     background-size: cover;
@@ -51,15 +57,36 @@
     background-repeat: no-repeat;
     height: 700px;
 }
-.videosection{
+
+.videosection {
     width: 100%;
     position: relative;
-margin-top: 50px;
-  }
-  @media screen and (max-width: 992px) {
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 992px) {
     .sectionfive {
         margin-top: 50px;
         margin-bottom: 50px;
     }
-  }
- 
+    .sectionfive .top h5 {
+        font-size: 20px;
+    }
+    
+    .sectionfive .top h2 {
+        line-height: 1;
+        font-size: 40px;
+        padding-bottom: 14px;
+   
+    }
+    .centered h2 {
+       
+   
+        line-height: 1;
+        font-size: 50px;
+        padding-bottom: 15px;
+      
+    }
+    
+    
+}

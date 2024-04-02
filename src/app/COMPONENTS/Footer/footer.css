@@ -18,3 +18,9 @@
     margin-top: 40px;
     content:url('/images/leafes.webp');
   }
+  @media screen and (max-width: 992px) {
+    .email::after{
+    
+      content:'';
+    }
+  }

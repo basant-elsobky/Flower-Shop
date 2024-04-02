@@ -7,26 +7,17 @@ import supabase from '../../Config/Supabaseclient';
 import { useContext, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { userContext } from '../../context/userContext';
-
 function page() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { setUser } = useContext(userContext)
-
- 
+  const [check, setcheck] = useState(' ');
   const router = useRouter()
-
   const getUser = async () => {
     const { data: { user } } = await supabase.auth.getUser()
     sessionStorage.setItem("user", JSON.stringify(user))
     setUser(user)
-    
   }
- 
- 
-  
-   
-
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -35,15 +26,22 @@ function page() {
       password
     });
     if (error) {
+      setcheck(<>
 
+
+        <div class="alert alert-danger" role="alert">
+            {error ? 'you dont have account create one' : ""}
+        </div>
+  </>)
     } if (data) {
 
+      await getUser()
+      router.push('/')
     }
+   
+  
 
-    console.log("Successfully logged in");
-    await getUser()
 
-    router.push("/")
 
   };
   return (
@@ -56,7 +54,7 @@ function page() {
 
               <input onChange={(e) => { setEmail(e.target.value) }} value={email} type="email" name="email" placeholder="Email" required />
               <input onChange={(e) => { setPassword(e.target.value) }} value={password} type="password" name="pswd" placeholder="Password" required />
-
+{check}
               <h5>Forgot your password?</h5>
               <button type="submit">Sign in</button>
               <Link href='/Account/Signup'>

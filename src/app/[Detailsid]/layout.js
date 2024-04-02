@@ -4,8 +4,8 @@ import First from './first/First';
 import Description from './description/Description';
 import supabase from '../Config/Supabaseclient';
 
-export default function ProductLayout({ children,params }) {
-  const [name ,setname]=useState('')
+export default function ProductLayout({ children, params }) {
+  const [name, setname] = useState('')
   const postid = params.Detailsid
 
   useEffect(() => {
@@ -17,9 +17,9 @@ export default function ProductLayout({ children,params }) {
         .single()
       if (error) { }
       if (data) {
-       
+
         setname(data.Name)
-     
+
       }
     }
 
@@ -28,9 +28,9 @@ export default function ProductLayout({ children,params }) {
   }, []);
   return (
     <div className="product-layout">
-    <First name={name} product={name}/>
+      <First name={name} product={name} />
       <main>{children}</main>
-      <Description/>
+      <Description />
     </div>
   );
 }
