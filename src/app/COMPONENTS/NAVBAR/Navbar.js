@@ -103,18 +103,29 @@ function Navbar() {
                 <img src="/images/logo.webp" alt="Logo" />
 
                 <ul className={`nav-menu me-auto mb-2 mb-lg-0 ${isMenuOpen ? 'active' : ''}`}>
-                    <Link href='/' className="nav-item" >
-                        <li className="nav-link " aria-current="page" href="#" onClick={closeMenu}>Home</li>
-                    </Link>
+                    <li className="nav-link " aria-current="page" href="#" onClick={closeMenu}>
+                        <Link href='/' className="nav-item" >
+                            Home   
+                            </Link></li>
+
+                        <li className="nav-link" href="#" onClick={closeMenu}>
+                        
                     <Link href='/Collection' className="nav-item">
-                        <li className="nav-link" href="#" onClick={closeMenu}>Occasions</li>
+                        Occasions
                     </Link>
+                        </li>
+                        <li className="nav-link" href="" onClick={closeMenu}>
                     <Link href='/Admin' className="nav-item">
-                        <li className="nav-link" href="" onClick={closeMenu}>Admin</li>
+                        Admin
                     </Link>
-                    <Link className="nav-item" href='/Wishlist'>
-                        <li className="nav-link" onClick={closeMenu}>wishlist</li>
+                        </li>
+                        <li className="nav-link" onClick={closeMenu}>
+                        <Link className="nav-item" href='/Wishlist'>
+                        wishlist
+                        
                     </Link>
+                        </li>
+                  
 
                 </ul>
 
@@ -127,7 +138,7 @@ function Navbar() {
                     </Link>
                     <span>{cartcount}</span>
                 </div>
-                <Link href='/Account/Login'>
+                
                     <div className="dropdown">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="30" fill="currentColor" className="bi bi-person" viewBox="0 0 16 16" style={{ color: 'white', width: '30px' }}>
                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
@@ -135,7 +146,7 @@ function Navbar() {
                         <div className="dropdown-content">
                             {user?.email ? (
                                 <li>Hello
-                                {user.email}</li>
+                                    {user.email}</li>
                             ) : ''}
                             <Link href='/Account/Login'>
                                 <li>Login</li>
@@ -153,7 +164,7 @@ function Navbar() {
                     </div>
 
 
-                </Link>
+              
 
 
 
