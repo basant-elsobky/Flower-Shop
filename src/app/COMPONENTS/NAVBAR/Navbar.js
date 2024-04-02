@@ -23,21 +23,42 @@ function Navbar() {
     const [isMenuOpen, setMenuOpen] = useState(false);
     const [scrolling, setScrolling] = useState(false);
 
-
     useEffect(() => {
-        setUser(getUserFromLocalStorage())
-
-        const getData = async () => {
-            const { error, data } = await supabase
-                .from('CartItems')
-                .select()
-                .eq('user-id', user.id)
-
-            setcartcountt(data.length)
-
+        if (user && user.id) {
+            const getData = async () => {
+                try {
+                    const { data, error } = await supabase
+                        .from('CartItems')
+                        .select()
+                        .eq('user-id', user.id)
+                    if (error) {
+                        throw error;
+                    }
+                    setcartcountt(data.length)
+                } catch (error) {
+                    console.error('Error fetching cart count:', error.message)
+                }
+            }
+            getData();
         }
-        getData();
-    }, []);
+    }, [user]); 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setScrolling(true);
+            } else {
+                setScrolling(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []); 
+
+  
 
     const logout = async () => {
         let { error } = await supabase.auth.signOut()
@@ -62,7 +83,7 @@ function Navbar() {
 
     return (
         <header className={`header ${scrolling ? 'scrolled' : ''} fixed-top`} id="navigation-menu">
-            <nav className="navbar container">
+            <nav className={`navbar container ${scrolling ? 'scrolled' : ''}`}>
                 <img src="/images/logo.webp" alt="Logo" />
                 <ul className={`nav-menu me-auto mb-2 mb-lg-0 ${isMenuOpen ? 'active' : ''}`}>
                     <li className="nav-link " aria-current="page" href="#" onClick={closeMenu}>
