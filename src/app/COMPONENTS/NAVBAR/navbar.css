@@ -4,12 +4,7 @@
 
 
 
-.nav-link.active {
-    /* Your desired styles for the active state, e.g., */
-    background-color: #eee;
-    color: #333;
-    font-weight: bold;
-  }
+
 .navbar img {
     max-height: 80px;
    
@@ -75,10 +70,12 @@ path:hover{
 
 li {
     list-style: none;
-    color: black;
+    color: black !important;
     margin-top: 10px;
 }
-
+.nav-item{
+    color: white;
+}
 a {
     text-decoration: none;
   
@@ -169,6 +166,7 @@ a {
 
     .nav-item {
         margin: 5rem 0;
+        color: black;
     }
 
     .hamburger {
