@@ -45,6 +45,7 @@ function page({ params }) {
 
 
   const addToCart = async () => {
+    
     try {
       const { data: existingItems, error } = await supabase
         .from('CartItems')

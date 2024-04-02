@@ -23,6 +23,7 @@ function Navbar() {
     const [isMenuOpen, setMenuOpen] = useState(false);
     const [scrolling, setScrolling] = useState(false);
 
+    
     useEffect(() => {
         setUser(getUserFromLocalStorage())
 
@@ -30,9 +31,10 @@ function Navbar() {
             const { error, data } = await supabase
                 .from('CartItems')
                 .select()
-                .eq('user-id', user.id)
+                .eq('user-id',user.id)
 
             setcartcountt(data.length)
+       
         }
         getData();
     }, []);

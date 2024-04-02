@@ -7,33 +7,52 @@ import { userContext } from '../context/userContext';
 import './page.css'
 import Link from "next/link";
 import First from "../[Detailsid]/first/First";
+
 function page() {
+
   const [cart, setcart] = useState(null);
   const [fetchError, setFetchError] = useState(null);
   const { user, cartcount } = useContext(userContext)
-
   useEffect(() => {
     const getData = async () => {
-      const { data, error } = await supabase
-        .from('CartItems')
-        .select()
-        .eq('user-id', user.id)
-      const productIds = data.map(item => item['product-id']);
-      const { data: products, error: productError } = await supabase
-        .from('Image')
-        .select()
-        .in('id', productIds);
-      if (error) {
-        setFetchError('An error occurred while fetching data');
+      if (user && user.id) { 
+        try {
+          const { data, error } = await supabase
+            .from('CartItems')
+            .select()
+            .eq('user-id', user.id);
+          if (error) {
+            setFetchError('An error occurred while fetching data');
+            setcart(null);
+          } else if (data) {
+            const productIds = data.map(item => item['product-id']);
+            const { data: products, error: productError } = await supabase
+              .from('Image')
+              .select()
+              .in('id', productIds);
+            if (productError) {
+              setFetchError('An error occurred while fetching product data');
+              setcart(null);
+            } else {
+              setcart(products);
+              setFetchError(null);
+            }
+          }
+        } catch (error) {
+          console.error('Error fetching data:', error);
+          setFetchError('An unexpected error occurred while fetching data');
+          setcart(null);
+        }
+      } else {
+     
         setcart(null);
-      } if (data) {
-        setcart(products);
-        setFetchError(null);
       }
-    }
-    getData();
-  }, []);
+    };
   
+    getData();
+  }, [user]);
+  
+
   const ondelete = (id) => {
     setcart(prevcart => {
       return prevcart.filter(sm => sm.id !== id)
@@ -44,36 +63,42 @@ function page() {
 
   return (
     <>
-      <First name='YOUR SHOPPING CART' />
+     
       {fetchError && <p>{fetchError}</p>}
-      {cartcount === 0 ? (
-        <div className="Emptycart">
-          <img src="images/emptycart.webp" />
-          <h5 >No Items in cart</h5>
-          <p>Add items you want to shop</p>
-          <Link href='/'>
+  
+      {user ? (
+        cartcount === 0 ? (
+          <>
+          <First name='YOUR SHOPPING CART' />
+            <div className="Emptycart">
+              <img src="images/emptycart.webp" />
+              <h5 >No Items in cart</h5>
+              <p>Add items you want to shop</p>
+              <Link href='/'>
+                <button >START SHOPPING</button>
+              </Link>
+            </div>
+          </>
+        ) : (
+          <>
 
-            <button >START SHOoPPING</button>
-          </Link>
-
-        </div>
-
-      ) : (
-        <>
-          {cart && (
-            <div className='carts'>
-              {cart.map((cartItem, index) => (
+                <First name='YOUR SHOPPING CART' />
+          <div className='carts'>
+            {cart && (
+              cart.map((cartItem, index) => (
                 <div key={index} className=''>
                   <Cart cart={cartItem} ondelete={ondelete} />
                 </div>
-              ))}
-            </div>
-          )}
-        </>
+              ))
+            )}
+          </div>
+          </>
+        )
+      ) : (
+        <First name='LOG IN FIRST' />
       )}
     </>
-
-  )
+  );
 }
 
-export default page
+export default page;
