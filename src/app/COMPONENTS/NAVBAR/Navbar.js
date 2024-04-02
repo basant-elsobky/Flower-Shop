@@ -8,6 +8,7 @@ import supabase from '../../Config/Supabaseclient';
 import { useRouter } from 'next/navigation';
 import { userContext } from '../../context/userContext';
 
+<<<<<<< HEAD
 function Navbar() {
 
 
@@ -23,9 +24,31 @@ function Navbar() {
                     .from('CartItems')
                     .select()
                     .eq('user-id', user.id)
+=======
+const getUserFromLocalStorage = () => {
+    const storedUser = sessionStorage.getItem("user")
+    if (storedUser) return JSON.parse(storedUser)
 
-                setcartcountt(data.length)
+    return null
+}
 
+function Navbar() {
+    const router = useRouter()
+    const { user, setUser, cartcount, setcartcountt } = useContext(userContext)
+
+    useEffect(() => {
+        setUser(getUserFromLocalStorage())
+
+        const getData = async () => {
+            const { error, data } = await supabase
+                .from('CartItems')
+                .select()
+                .eq('user-id', user.id)
+>>>>>>> 188a452471d23cae47ff1366e42f8bc57e81d128
+
+            setcartcountt(data.length)
+
+<<<<<<< HEAD
 
             }
             getData();
@@ -33,8 +56,22 @@ function Navbar() {
 
         }, []);
     
+=======
+            console.log({ data })
+        }
+
+        if (user) {
+            getData();
+        }
+    }, []);
+
+>>>>>>> 188a452471d23cae47ff1366e42f8bc57e81d128
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 188a452471d23cae47ff1366e42f8bc57e81d128
 
     const logout = async () => {
         let { error } = await supabase.auth.signOut()
