@@ -55,7 +55,7 @@ function page() {
               <input onChange={(e) => { setEmail(e.target.value) }} value={email} type="email" name="email" placeholder="Email" required />
               <input onChange={(e) => { setPassword(e.target.value) }} value={password} type="password" name="pswd" placeholder="Password" required />
 {check}
-              <h5>Forgot your password?</h5>
+              {/* <h5>Forgot your password?</h5> */}
               <button type="submit">Sign in</button>
               <Link href='/Account/Signup'>
 
