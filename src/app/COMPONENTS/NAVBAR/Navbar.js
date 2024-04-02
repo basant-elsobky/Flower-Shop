@@ -41,7 +41,7 @@ function Navbar() {
             }
             getData();
         }
-    }, [user]); 
+    }, [user]);
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0) {
@@ -56,9 +56,9 @@ function Navbar() {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []); 
+    }, []);
 
-  
+
 
     const logout = async () => {
         let { error } = await supabase.auth.signOut()
@@ -96,11 +96,13 @@ function Navbar() {
                             Occasions
                         </Link>
                     </li>
-                    <li className="nav-link" href="" onClick={closeMenu}>
-                        <Link href='/Admin' className="nav-item">
-                            Admin
-                        </Link>
-                    </li>
+                    {user?.email === 'basantheshem9@gmail.com' && (
+                        <li className="nav-link" href="" onClick={closeMenu}>
+                            <Link href='/Admin' className="nav-item">
+                                Admin
+                            </Link>
+                        </li>
+                    )}
                     <li className="nav-link" onClick={closeMenu}>
                         <Link className="nav-item" href='/Wishlist'>
                             wishlist
