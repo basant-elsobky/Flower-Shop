@@ -12,73 +12,89 @@ function page() {
   const { user, cartcount } = useContext(userContext)
 
   const [wishlist, setwishlist] = useState(null);
-  const{wishlistcount, setwishlistcount}  = useContext(userContext);
+  const { wishlistcount, setwishlistcount } = useContext(userContext);
   const [fetchError, setFetchError] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
-    const {data,error}=await supabase
-    .from('Wishitems')
-    .select()
-    .eq('user-id',user.id)
-    const productIds = data.map(item => item['product-id']);
-    const { data: products, error: productError } = await supabase
-    .from('Image')
-    .select()
-    .in('id',productIds)
-    if (error) {
-      setFetchError('An error occurred while fetching data');
-      setwishlist(null);
-    } if (data) {
-      setwishlist(products);
-      setwishlistcount(data.length);
-      setFetchError(null);
-    }
-  }
-  getData();
+        try {
+            if(user && user.id) {
+                const { data, error } = await supabase
+                    .from('Wishitems')
+                    .select()
+                    .eq('user-id', user.id);
+                
+                if (error) {
+                    throw error;
+                }
+                
+                const productIds = data.map(item => item['product-id']);
+                const { data: products, error: productError } = await supabase
+                    .from('Image')
+                    .select()
+                    .in('id', productIds);
+                
+                if (productError) {
+                    throw productError;
+                }
+                
+                setwishlist(products);
+                setwishlistcount(data.length);
+                setFetchError(null);
+            } else {
+                // User not logged in, handle accordingly
+            }
+        } catch (error) {
+            console.error('An error occurred while fetching data:', error.message);
+            setFetchError('An error occurred while fetching data');
+            setwishlist(null);
+        }
+    };
     
-  }, []);
+    getData();
+}, []);
+
   const ondelete = (id) => {
-   
+
     setwishlist(prevwishlist => {
       return prevwishlist.filter(sm => sm.id !== id);
-    
+
     })
   }
 
- 
+
 
   return (
     <>
-    <First name='WISHLIST'/>
       {fetchError && <p>{fetchError}</p>}
-      {wishlistcount=== 0 ? (
-        <>
-        <div className="Emptycart">
-          <img src="images/emptywishlist.webp" />
-          <h5 >No Items in No Items in wishlist</h5>
-          <p>Save your favorite items here</p>
-         <Link href='/'>
-
-            <button >START SHOoPPING</button>
-         </Link>
+      {user ? (
+        wishlistcount === 0 ? (
+          <>
+            <First name='YOUR WISHLIST' />
+            <div className="Emptycart">
+              <img src="images/emptywishlist.webp" />
+              <h5 >No Items in wishlist</h5>
+              <p>Save your favorite items here</p>
+              <Link href='/'>
+                <button >START SHOPPING</button>
+              </Link>
             </div>
           </>
-          ):(<>
-            {wishlist && (
-              <div className='carts'>
-                {wishlist.map(wishlist => (
-                  <div className=''>
-
-                    <Wishlist wishlist={wishlist} ondelete={ondelete} />
-                  </div>
-                ))}
+        ) : (
+          <>
+            <First name='YOUR WISHLIST' />
+            {wishlist && wishlist.map(wishlistItem => (
+              <div className='carts' key={wishlistItem.id}>
+                <Wishlist wishlist={wishlistItem} ondelete={ondelete} />
               </div>
-            )}
-
-          </>)}
-        </>
+            ))}
+          </>
         )
-}
+      ) : (
+        <First name='LOG IN FIRST' />
+      )}
+    </>
+  );}
+  
 
-        export default page
+export default page;
