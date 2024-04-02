@@ -6,8 +6,8 @@ import Link from 'next/link';
 function Card({ smooth }) {
   return (
     <>
-        <Link href={'/' + smooth.id}>
-      <div className="card" >
+        <Link   href={'/' + smooth.id}>
+      <div  className="card" >
           <img src={smooth.image} className="img" alt="..." />
       
         <div className="card-body float-left">

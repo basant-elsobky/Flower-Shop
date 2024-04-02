@@ -8,7 +8,7 @@ import supabase from '../../Config/Supabaseclient';
 import { useRouter } from 'next/navigation';
 import { userContext } from '../../context/userContext';
 
-<<<<<<< HEAD
+
 function Navbar() {
 
 
@@ -17,61 +17,52 @@ function Navbar() {
 
     const { user, setUser, cartcount, setcartcountt } = useContext(userContext)
 
-
-        useEffect(() => {
-            const getData = async () => {
-                const { error, data } = await supabase
-                    .from('CartItems')
-                    .select()
-                    .eq('user-id', user.id)
-=======
-const getUserFromLocalStorage = () => {
-    const storedUser = sessionStorage.getItem("user")
-    if (storedUser) return JSON.parse(storedUser)
-
-    return null
-}
-
-function Navbar() {
-    const router = useRouter()
-    const { user, setUser, cartcount, setcartcountt } = useContext(userContext)
 
     useEffect(() => {
-        setUser(getUserFromLocalStorage())
-
         const getData = async () => {
             const { error, data } = await supabase
                 .from('CartItems')
                 .select()
                 .eq('user-id', user.id)
->>>>>>> 188a452471d23cae47ff1366e42f8bc57e81d128
 
-            setcartcountt(data.length)
+            const getUserFromLocalStorage = () => {
+                const storedUser = sessionStorage.getItem("user")
+                if (storedUser) return JSON.parse(storedUser)
 
-<<<<<<< HEAD
-
+                return null
             }
-            getData();
+        }
+
+        function Navbar() {
+            const router = useRouter()
+            const { user, setUser, cartcount, setcartcountt } = useContext(userContext)
+
+            useEffect(() => {
+                setUser(getUserFromLocalStorage())
+
+                const getData = async () => {
+                    const { error, data } = await supabase
+                        .from('CartItems')
+                        .select()
+                        .eq('user-id', user.id)
 
 
-        }, []);
-    
-=======
+                    setcartcountt(data.length)
+
+
+
+                }
+                getData();
+
+
+            }, []);
+
+
             console.log({ data })
         }
 
-        if (user) {
-            getData();
-        }
+
     }, []);
-
->>>>>>> 188a452471d23cae47ff1366e42f8bc57e81d128
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 188a452471d23cae47ff1366e42f8bc57e81d128
 
     const logout = async () => {
         let { error } = await supabase.auth.signOut()
@@ -137,17 +128,15 @@ function Navbar() {
                     <span>{cartcount}</span>
                 </div>
                 <Link href='/Account/Login'>
-                    <div class="dropdown">
+                    <div className="dropdown">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="30" fill="currentColor" className="bi bi-person" viewBox="0 0 16 16" style={{ color: 'white', width: '30px' }}>
                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
                         </svg>
-                        <div class="dropdown-content">
-                            <Link href='/Account/Login' >
-                                <li>  </li>
-                            </Link>
+                        <div className="dropdown-content">
                             {user?.email ? (
-                                <li>Hello {user.email}</li>
-                            ) : null}
+                                <li>Hello
+                                {user.email}</li>
+                            ) : ''}
                             <Link href='/Account/Login'>
                                 <li>Login</li>
                             </Link>

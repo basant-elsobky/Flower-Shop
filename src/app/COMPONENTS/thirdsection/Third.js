@@ -8,7 +8,7 @@ import { userContext } from '../../context/userContext';
 export default function Third() {
 
   const [fetchError, setFetchError] = useState(null);
-const {products}=useContext(userContext)
+  const { products } = useContext(userContext)
 
 
   return (
@@ -23,22 +23,19 @@ const {products}=useContext(userContext)
 
       {fetchError && <p>{fetchError}</p>}
 
-      {products && (
-        <div className='row'>
-          {products.map(smooth => (
-            <>
-
-          
-                <div  className='col-md-4 col-sm-12'>
-
-                  <Card key={smooth.id}  smooth={smooth} />
-                </div>
-             
-
-            </>
-          ))}
+      {products && products.length > 0 && (
+  <div className='row'>
+    {products.map((smooth) => (
+      <>
+        <div key={products.id} className='col-md-4 col-sm-12'>
+          <Card smooth={smooth} />
         </div>
-      )}
+      </>
+    ))}
+  </div>
+)}
+
+        
     </div>
   );
 }
