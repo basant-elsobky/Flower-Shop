@@ -101,7 +101,7 @@ function Navbar() {
                     <div className="dropdown-content">
                         {user?.email ? (
                             <li>Hello
-                                {user.email}</li>
+                                {user?.email}</li>
                         ) : ''}
                         <Link href='/Account/Login'>
                             <li>Login</li>

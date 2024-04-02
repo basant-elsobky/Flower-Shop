@@ -67,7 +67,7 @@ const {user} =useContext(userContext)
 
     return (
         <>
-        {user.email==='basantheshem9@gmail.com'?(
+        {user?.email==='basantheshem9@gmail.com'?(
            <>
 
             <First name="ADD NEW FLOWER..!" />
