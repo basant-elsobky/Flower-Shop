@@ -20,7 +20,7 @@ function First(props) {
                         <li>shop our products</li>
                     </Link>
                    
-                        <li><a href="#contact">{props.product}</a></li>
+                        <li>{props.product}</li>
 
                     </ul>
                 </div>

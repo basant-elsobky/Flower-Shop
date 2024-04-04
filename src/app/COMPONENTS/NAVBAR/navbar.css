@@ -22,7 +22,7 @@
 
 .shoppingcart {
     position: relative;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 path:hover{
     fill:var(--yellowcolor);
@@ -45,7 +45,7 @@ path:hover{
 .dropdown {
     position: relative;
     display: inline-block;
-    padding-right: 50px;
+    padding-right: 30px;
 }
 
 .dropdown-content {
@@ -161,7 +161,7 @@ a {
    
         margin-bottom: 20px;
     }
-    
+  
     .nav-menu.active {
         left: 0%;
     }
