@@ -7,7 +7,7 @@ function Second({  smoothes }) {
 
   return (
     <div className='container secondsection'>
-      <div className='row'>
+      <div className='row '>
         <div className='col-md-6 col-sm-12 text-center leftsidesection'>
           <h3>fresh flowers</h3>
           <h2> from our garden to your table</h2>

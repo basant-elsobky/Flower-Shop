@@ -3,6 +3,10 @@
     text-transform: capitalize;
 
 }
+.secondsection .row{
+  width: 100%;
+
+}
 
 .leftsidesection h3 {
     color: var(--secondcolor);
@@ -70,9 +74,7 @@
     .secondsection {
         padding: 0;
     }
-    .secondsection .row{
-        width: 95%;
-    }
+   
 
     .leftsidesection button {
         font-size: 14px;
