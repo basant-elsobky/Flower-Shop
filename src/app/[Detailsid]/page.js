@@ -165,25 +165,17 @@ return (
         <h5>We have Many In Stock
         </h5>
         <div className='row mt-4 details'>
-          <div className='col-md-3 col-sm-6'>
+          <div className='col-md-3 col-sm-3'>
             <ul>
-              <li className='d-flex '>Brand: </li>
-              <li className='d-flex'>product type: </li>
-              <li className='d-flex'>availability: </li>
-              <li className='d-flex'>SKY </li>
+              <li className='d-flex '>Brand: florist </li>
+              <li className='d-flex'>product type: posy</li>
+              <li className='d-flex'>availability: many in stock</li>
+              <li className='d-flex'>SKY: vv</li>
 
 
             </ul>
           </div>
-          <div className='col-md-3 col-sm-6'>
-            <ul>
-              <li className='d-flex '> florist</li>
-              <li className='d-flex'>posy </li>
-              <li className='d-flex' style={{ color: '#fa9324' }}>many in stock </li>
-              <li className='d-flex'>vv</li>
-
-            </ul>
-          </div>
+          
 
 
           <div className='d-flex addbuttons'>
