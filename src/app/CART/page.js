@@ -15,7 +15,7 @@ function page() {
   const { user, cartcount } = useContext(userContext)
   useEffect(() => {
     const getData = async () => {
-      if (user && user.id) { 
+      if (user && user.id) {
         try {
           const { data, error } = await supabase
             .from('CartItems')
@@ -44,14 +44,14 @@ function page() {
           setcart(null);
         }
       } else {
-     
+
         setcart(null);
       }
     };
-  
+
     getData();
   }, [user]);
-  
+
 
   const ondelete = (id) => {
     setcart(prevcart => {
@@ -63,13 +63,13 @@ function page() {
 
   return (
     <>
-     
+
       {fetchError && <p>{fetchError}</p>}
-  
+
       {user ? (
         cartcount === 0 ? (
           <>
-          <First name='YOUR SHOPPING CART' />
+            <First name='YOUR SHOPPING CART' />
             <div className="Emptycart">
               <img src="images/emptycart.webp" />
               <h5 >No Items in cart</h5>
@@ -82,16 +82,16 @@ function page() {
         ) : (
           <>
 
-                <First name='YOUR SHOPPING CART' />
-          <div className='carts'>
-            {cart && (
-              cart.map((cartItem, index) => (
-                <div key={index} className=''>
-                  <Cart cart={cartItem} ondelete={ondelete} />
-                </div>
-              ))
-            )}
-          </div>
+            <First name='YOUR SHOPPING CART' />
+            <div className='carts'>
+              {cart && (
+                cart.map((cartItem, index) => (
+                  <div key={index} className=''>
+                    <Cart cart={cartItem} ondelete={ondelete} />
+                  </div>
+                ))
+              )}
+            </div>
           </>
         )
       ) : (
