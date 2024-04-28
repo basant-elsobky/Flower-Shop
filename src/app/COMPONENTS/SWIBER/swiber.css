@@ -13,20 +13,20 @@
     display: flex;
     padding-top: 270px;
     background-repeat: no-repeat;
-    background-image: url('/images/try1.jpg');
+    background-image: url('/images/slide1.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 
 }
 
-.slide1 button {
+.shopnow{
     background: #ffffff;
     color: #333333;
     border: none;
+
     font-size: 14px;
-    padding: 8px 20px;
-    height: 60px;
+    padding: 15px 20px;
     width: 130px;
     line-height: normal;
     font-weight: 800;
@@ -34,7 +34,7 @@
     text-transform: capitalize !important;
 }
 
-.slide1 button:hover {
+.shopnow:hover {
     background: #333333;
     color: #ffffff;
 }
@@ -60,7 +60,7 @@
 .slide1 img{
     width: 30px;
 }
-    .slide1 button {
+    .shopnow {
         height: 40px;
         width: 140px;
     }
@@ -79,7 +79,7 @@
     padding-top: 270px;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url('/images/slider-bg3_2000x.webp');
+    background-image: url('/images/slide3.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -164,7 +164,7 @@
 
 .slide2 {
     background-size: contain;
-    background-image: url('/images/slider-bg2_2000x.webp');
+    background-image: url('/images/slide2.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -214,13 +214,13 @@
     font-weight: 100;
 }
 
-.slide2 button {
+.shopnow2{
     color: #ffffff;
     background-color: #333333;
     border: none;
     font-size: 14px;
-    padding: 8px 20px;
-    height: 50px;
+    padding: 15px 20px;
+    
     width: 120px;
     line-height: normal;
     font-weight: 700;
@@ -229,7 +229,7 @@
     text-transform: capitalize !important;
 }
 
-.slide2 button:hover {
+.shopnow2:hover {
     background-color: #E19B9A;
     animation: 1.1s ease 0s normal none 1 running;
 }
@@ -262,7 +262,7 @@
         font-weight: 100;
     }
 
-    .slide2 button {
+    .shopnow2{
 
 
         font-size: 14px;

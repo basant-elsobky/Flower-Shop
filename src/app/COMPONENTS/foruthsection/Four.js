@@ -16,7 +16,7 @@ function Four() {
       <div className='bottomsection'>
         <div className='row'>
           <div className='col-md-7 col-sm-12'>
-            <img src='/images/try2.jpg' />
+            <img src='/images/try2.webp' alt=''/>
           </div>
           <div className='col-md-5 col-sm-12'>
             <ol className="circle-bullets">

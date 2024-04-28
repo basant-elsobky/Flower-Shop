@@ -1,146 +1,167 @@
-.foursection .topsection::before{
-content: url(/images/beforele.avif);
-margin-top:120px;
+.foursection .topsection::before {
+  content: url(/images/beforele.avif);
+  margin-top: 120px;
 
 }
-.foursection .topsection::after{
-content: url(/images/redrose.webp);
-margin-top:60px;
+
+.foursection .topsection::after {
+  content: url(/images/redrose.webp);
+  margin-top: 60px;
 }
-.foursection{
-    margin-top: 150px;
+
+.foursection {
+  margin-top: 150px;
 }
+
 @media screen and (max-width: 1000px) {
-    .foursection .topsection::before {
-     display: none;
-    }
-    .foursection .topsection::after{
-        display: none;  
-    }
-    .bottomsection .circle-bullets{
- margin-top: 20px;
-    }
-    .foursection{
-      margin-top:20px;
-    }
+  .foursection .topsection::before {
+    display: none;
   }
-  .topsection{
-    margin-bottom: 70px;
-  }
-  .foursection h5{
-    color: var(--secondcolor);
-    margin-bottom: 35px;
-    font-weight: 400;
-    text-transform: capitalize;
-  }
-  .foursection h2{
-    line-height: 1.1;
-    font-size: 64px;
-    padding-bottom: 20px;
-    display: inline-block;
-    position: relative;
-    margin-bottom: 0;
-    z-index: 1;
-    text-transform: capitalize;
-    font-family: "Dancing Script", cursive;
-        font-weight: 400;
-  }
-  .foursection p{
-    padding-bottom: 7px;
-    color: var(--secondcolor);
-    font-size: 18px;
 
+  .foursection .topsection::after {
+    display: none;
   }
-  .bottomsection img{
-width: 100%;
+
+  .bottomsection .circle-bullets {
+    margin-top: 20px;
   }
-  ol.circle-bullets {
-    counter-reset:item; 
-    margin:0; 
-    padding-left:0; 
-    cursor: pointer;
+
+  .foursection {
+    margin-top: 20px;
+  }
 }
+
+.topsection {
+  margin-bottom: 70px;
+}
+
+.foursection h5 {
+  color: var(--secondcolor);
+  margin-bottom: 35px;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.foursection h2 {
+  line-height: 1.1;
+  font-size: 64px;
+  padding-bottom: 20px;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 0;
+  z-index: 1;
+  text-transform: capitalize;
+  font-family: "Dancing Script", cursive;
+  font-weight: 400;
+}
+
+.foursection p {
+  padding-bottom: 7px;
+  color: var(--secondcolor);
+  font-size: 18px;
+
+}
+
+.bottomsection img {
+  width: 100%;
+}
+
+ol.circle-bullets {
+  counter-reset: item;
+  margin: 0;
+  padding-left: 0;
+  cursor: pointer;
+}
+
 ol.circle-bullets>li {
-    counter-increment:item; 
-    list-style:none inside; 
-    margin: 12px 0;
-    overflow: hidden;
-    font-size: 16px;
-    line-height: 1.3;
-    font-weight: normal;
-    font-style: normal;
-    font-family: Helvetica, Arial, sans-serif;
-    color: #404040;
-    margin: 0;
-    padding: 12px 0;
+  counter-increment: item;
+  list-style: none inside;
+  margin: 12px 0;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: normal;
+  font-style: normal;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #404040;
+  margin: 0;
+  padding: 12px 0;
 }
-ol.circle-bullets>li:before {
-    content:counter(item) ;
-    margin-right: 12px;
-    padding: 4px;
-    display: block;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    height: 30px;
-    width: 30px;
-    background: rgb(246, 245, 245);
-    color: black;
-    text-align: center; 
-    font-weight: 700;
-    float: left;
-    font-size: 18px;
-}
-.circle-bullets h4{
-    font-size: 40px;
-    margin-bottom: 15px;
-    font-weight: 700;
-    color: #333;
-    font-family: 'Dancing Script';
-    letter-spacing: 0em;
-    margin: 0 0 15px;
-    line-height: 1.1;
-}
-.circle-bullets h4:hover{
-    color: #E19B9A;
-}
-.circle-bullets p{
-color: black;
-letter-spacing: 0em;
 
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5;
+ol.circle-bullets>li:before {
+  content: counter(item);
+  margin-right: 12px;
+  padding: 4px;
+  display: block;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  background: rgb(246, 245, 245);
+  color: black;
+  text-align: center;
+  font-weight: 700;
+  float: left;
+  font-size: 18px;
 }
-.bottomsection img{
-max-height: 600px;
+
+.circle-bullets h4 {
+  font-size: 40px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #333;
+  font-family: 'Dancing Script';
+  letter-spacing: 0em;
+  margin: 0 0 15px;
+  line-height: 1.1;
+}
+
+.circle-bullets h4:hover {
+  color: #E19B9A;
+}
+
+.circle-bullets p {
+  color: black;
+  letter-spacing: 0em;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.bottomsection img {
+  max-height: 600px;
 }
 
 
 @media screen and (max-width: 992px) {
-  .foursection h5{
+  .foursection h5 {
     margin-bottom: 0px;
   }
-  .foursection h2{
+
+  .foursection h2 {
     line-height: 1;
     font-size: 40px;
     padding-bottom: 10px;
   }
-  .foursection p{
+
+  .foursection p {
     font-size: 14px;
   }
- 
-ol.circle-bullets>li {
-    counter-increment:item; 
-    list-style:none inside; 
+
+  ol.circle-bullets>li {
+    counter-increment: item;
+    list-style: none inside;
     margin: 10px 0;
-  
+
     font-size: 14px;
     line-height: 1;
     padding: 10px 0;
-}
-ol.circle-bullets>li:before {
-    content:counter(item) ;
+  }
+
+  ol.circle-bullets>li:before {
+    content: counter(item);
     margin-right: 12px;
     padding: 4px;
     display: block;
@@ -150,22 +171,24 @@ ol.circle-bullets>li:before {
     height: 15px;
     width: 15px;
     font-size: 14px;
-}
-.circle-bullets h4{
+  }
+
+  .circle-bullets h4 {
     font-size: 20px;
 
 
 
     line-height: 1;
-}
+  }
 
-.circle-bullets p{
+  .circle-bullets p {
     font-size: 14px;
     line-height: 1.3;
-}
-.bottomsection img{
-margin-top: 0;
-}
+  }
+
+  .bottomsection img {
+    margin-top: 0;
+  }
 
 
 }
