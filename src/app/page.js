@@ -20,10 +20,7 @@ import Five from "./COMPONENTS/FIVESECTION/Five";
 
 export default async function Home() {
   
-  // useEffect(() => {
-  //   AOS.init({});
 
-  // }, [])
 
 
 

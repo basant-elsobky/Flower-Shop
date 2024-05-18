@@ -14,7 +14,7 @@ export default function Page() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [check, setcheck] = useState(' ');
-    const { setUser } = useContext(userContext);
+    const {setUser} = useContext(userContext);
 
     const router = useRouter();
 
@@ -25,7 +25,6 @@ export default function Page() {
         let { data: { user }, error } = await supabase.auth.signUp({
             email,
             password,
-
         });
       
         setUser(user);

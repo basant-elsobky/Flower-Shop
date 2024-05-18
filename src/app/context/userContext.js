@@ -16,8 +16,6 @@ function UserContextProvider({ children }) {
             if (error) {
              
             }  if (data ) {
-              
-              
               setproducts(data)
             
             }

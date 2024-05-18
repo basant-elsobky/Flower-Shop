@@ -18,7 +18,6 @@ function page() {
     sessionStorage.setItem("user", JSON.stringify(user))
     setUser(user)
   }
-
   const handleSignIn = async (e) => {
     e.preventDefault();
     let { data, error } = await supabase.auth.signInWithPassword({
@@ -27,21 +26,15 @@ function page() {
     });
     if (error) {
       setcheck(<>
-
-
         <div class="alert alert-danger" role="alert">
-            {error ? 'you dont have account create one' : ""}
+          {error ? 'you dont have account create one' : ""}
         </div>
-  </>)
+      </>)
     } if (data) {
 
       await getUser()
       router.push('/')
     }
-   
-  
-
-
 
   };
   return (
@@ -54,8 +47,8 @@ function page() {
 
               <input onChange={(e) => { setEmail(e.target.value) }} value={email} type="email" name="email" placeholder="Email" required />
               <input onChange={(e) => { setPassword(e.target.value) }} value={password} type="password" name="pswd" placeholder="Password" required />
-{check}
-              {/* <h5>Forgot your password?</h5> */}
+              {check}
+
               <button type="submit">Sign in</button>
               <Link href='/Account/Signup'>
 
